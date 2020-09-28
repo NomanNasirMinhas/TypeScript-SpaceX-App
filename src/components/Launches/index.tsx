@@ -1,10 +1,10 @@
 import React from 'react';
-import {useMissionsInfoQuery} from './../../generated/graphql';
-import MissionList from './MissionList'
+import {useLaunchesInfoQuery} from '../../generated/graphql';
+import LaunchesInfo from './LaunchesList'
 
 const MissionContainer = () => {
 
-    const {data, error, loading} = useMissionsInfoQuery();
+    const {data, error, loading} = useLaunchesInfoQuery();
 
     if(loading)
     return <h2>Loading</h2>
@@ -15,7 +15,7 @@ const MissionContainer = () => {
     console.log(data)
     return(
         <div>
-            <MissionList data={data}/>
+            <LaunchesInfo data={data}/>
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import { LaunchMissionInfoQuery } from './../../generated/graphql'
+import { LaunchInfoQuery } from '../../generated/graphql'
 
 interface Props {
-    data: LaunchMissionInfoQuery
+    data: LaunchInfoQuery
 }
 
 function getDeepKeys(obj: any) {

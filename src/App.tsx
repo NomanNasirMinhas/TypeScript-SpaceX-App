@@ -1,12 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MissionInfoContainer from './components/MissionInfo'
+import CompanyInfo from './components/Info'
+import Appbar from './components/Appbar'
 
 function App() {
   return (
     <div>
-      <MissionInfoContainer />
+      <Appbar />
+      <CompanyInfo />
     </div>
   );
 }

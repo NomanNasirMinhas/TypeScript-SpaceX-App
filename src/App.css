@@ -2,6 +2,23 @@
   text-align: center;
 }
 
+h1,h2,h3{
+  color: aliceblue;
+  font-family: 'Righteous';
+}
+
+body{
+  background-image: url('./img/bg2.jpg');
+  background-repeat: repeat-y;
+  background-size: cover;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

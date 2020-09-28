@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
-const LaunchMissionInfo = gql`
-query LaunchMissionInfo($id: String!) {
+const LaunchInfo = gql`
+query LaunchInfo($id: String!) {
     launch(id: $id) {
       details
       launch_date_utc
@@ -20,4 +20,4 @@ query LaunchMissionInfo($id: String!) {
 
 `
 
-export default LaunchMissionInfo
+export default LaunchInfo

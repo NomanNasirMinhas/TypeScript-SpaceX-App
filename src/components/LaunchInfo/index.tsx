@@ -1,11 +1,11 @@
 import React from 'react';
 // import { MissionInfo } from '../Mission/query';
-import {useLaunchMissionInfoQuery} from './../../generated/graphql';
-import MissionInfo from './MissionInfo'
+import {useLaunchInfoQuery} from '../../generated/graphql';
+import LaunchInfo from './MissionInfo'
 
 const MissionInfoContainer = () => {
 
-    const {data, error, loading} = useLaunchMissionInfoQuery({
+    const {data, error, loading} = useLaunchInfoQuery({
         variables: {
             id: '25'
         }
@@ -20,7 +20,7 @@ const MissionInfoContainer = () => {
     console.log(data)
     return(
         <div>
-            <MissionInfo data={data}/>
+            <LaunchInfo data={data}/>
         </div>
     )
 }
