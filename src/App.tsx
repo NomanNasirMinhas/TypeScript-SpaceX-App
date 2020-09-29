@@ -1,14 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CompanyInfo from './components/Info'
-import Appbar from './components/Appbar'
+import RoutesConfig from './Route'
 
 function App() {
   return (
     <div>
-      <Appbar />
-      <CompanyInfo />
+      {/* <Appbar /> */}
+      <RoutesConfig />
     </div>
   );
 }

@@ -12,10 +12,10 @@ const MissionInfoContainer = () => {
     });
 
     if(loading)
-    return <h2>Loading</h2>
+    return <h2>Loading Data........ Please Wait</h2>
 
     if (error || !data)
-    return <h1>Error</h1>
+    return <h1>Ooops! An Error Has Occurred</h1>
 
     console.log(data)
     return(

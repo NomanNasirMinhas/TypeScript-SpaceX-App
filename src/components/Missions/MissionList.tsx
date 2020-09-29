@@ -1,6 +1,8 @@
 import React from 'react';
 import {MissionsListQuery} from '../../generated/graphql'
+import {Slide} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
@@ -8,10 +10,45 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  paper:{
+    backgroundColor: '#01141760',
+    paddingTop:'30px',
+    paddingBottom:'30px',
+    paddingLeft:'20px',
+    paddingRight:'20px',
+    marginTop:'50px',
+    textAlign:'center',
+    color:'white',
+    fontFamily:'Secular One',
+    // fontSize:'20px'
+  },
+  description:{
+    backgroundColor: '#01141760',
+    paddingTop:'30px',
+    paddingBottom:'30px',
+    paddingLeft:'20px',
+    paddingRight:'20px',
+    marginTop:'50px',
+    textAlign:'center',
+    color:'white',
+    fontFamily:'Quicksand',
+    // fontSize:'20px'
+  },
+  title: {
+    flexGrow: 0,
+    fontFamily: 'Faster One',
+    fontSize: '50px',
+    margin: 'auto'
+  },
+  header:{
+    backgroundColor: '#01141760',
+    paddingTop:'30px',
+    paddingBottom:'30px',
+    paddingLeft:'20px',
+    paddingRight:'20px',
+    marginTop:'50px',
+    textAlign:'center',
+    color:'white'
   },
 }));
 
@@ -25,21 +62,34 @@ const MissionList:React.FC<Props> = ({data}) => {
     console.log(data)
     return(
         <div className={classes.root}>
+          <Slide direction="up" in={true} timeout={300}>
+          <Paper className={classes.header}>
+            <Typography className={classes.title}>SpaceX Missions</Typography>
+          </Paper>
+          </Slide>
+
+          <Slide direction="up" in={true} timeout={500}>
       <Grid container spacing={3}>
-          
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
+          {
+            data.missions?.map((mission, ind)=>{
+              var wiki=mission?.wikipedia;
+              return(
+                <Grid item xs={12} sm={6}>
+                <Paper className={classes.paper}>
+                <h2>Mission ID: {mission?.mission_id}</h2>
+              <h2>Mission Info: {mission?.mission_name}</h2>
+              <h3>Mission Description</h3>
+              <h5 className={classes.description}>{mission?.description}</h5>
+              <a href={mission?.wikipedia?.toString()} target="_blank"><h3>Click Here For More Info</h3></a>
+
+                </Paper>
+              </Grid>
+              );
+            })
+          }
+
       </Grid>
+      </Slide>
     </div>
     )
 }
